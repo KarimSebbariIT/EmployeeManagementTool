@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+// test
 // Add services to the container.
 builder.Services.AddDbContext<EmployeeContext>(options =>
 options.UseSqlServer(
