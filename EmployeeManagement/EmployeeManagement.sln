@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement", "EmployeeManagement.csproj", "{13A2FE6C-D721-49F9-8620-4FCAAB289E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.api", "EmployeeManagement.api.csproj", "{13A2FE6C-D721-49F9-8620-4FCAAB289E65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Domain", "..\EmployeeManagement.Domain\EmployeeManagement.Domain.csproj", "{F5BF523B-D2C5-4C30-9957-13DC5B5FF0AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Domain", "..\EmployeeManagement.Domain\EmployeeManagement.Domain.csproj", "{F5BF523B-D2C5-4C30-9957-13DC5B5FF0AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Services", "..\EmployeeManagement.Services\EmployeeManagement.Services.csproj", "{75F89232-109B-4E2E-AEF8-5BBA5BC46FF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Services", "..\EmployeeManagement.Services\EmployeeManagement.Services.csproj", "{75F89232-109B-4E2E-AEF8-5BBA5BC46FF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Repositories", "..\EmployeeManagement.Repositories\EmployeeManagement.Repositories.csproj", "{DC10C4D7-F606-405B-B553-21C77D435B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Repositories", "..\EmployeeManagement.Repositories\EmployeeManagement.Repositories.csproj", "{DC10C4D7-F606-405B-B553-21C77D435B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
