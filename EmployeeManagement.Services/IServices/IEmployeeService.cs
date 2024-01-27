@@ -9,9 +9,9 @@ namespace EmployeeManagement.Services.IServices
 {
     public interface IEmployeeService
     {
-        void CreateEmployee(EmployeeCreateModel employee);
-        void UpdateEmployee(EmployeeUpdateModel employee);
-        void DeleteEmployee(EmployeeModel employee);
+        Task<EmployeeCreateResponseModel> CreateEmployee(EmployeeCreateModel employee);
+        Task<EmployeeUpdateResponseModel> UpdateEmployee(EmployeeUpdateModel employee);
+        Task<EmployeeDeleteResponseModel> DeleteEmployee(EmployeeModel employee);
         Task<List<EmployeeModel>> GetEmployees();
         Task<EmployeeModel> GetEmployee(int id);
     }

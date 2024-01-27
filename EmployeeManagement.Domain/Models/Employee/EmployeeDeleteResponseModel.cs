@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Domain.Models.Employee
 {
-    public class EmployeeUpdateResponseModel
+    public class EmployeeDeleteResponseModel
     {
         public bool Success { get; set; }
         public string Message { get; set; }

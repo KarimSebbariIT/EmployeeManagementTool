@@ -25,6 +25,10 @@ namespace EmployeeManagement.Domain.Entities
         [MaxLength(100)]
         public string City { get; set; }
         [Required]
+        [MinLength(5)]
+        [MaxLength(100)]
+        public string Email { get; set; }
+        [Required]
         public DateTime Birthday { get; set; }
     }
 }

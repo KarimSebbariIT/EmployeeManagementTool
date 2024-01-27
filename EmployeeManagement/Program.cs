@@ -1,4 +1,6 @@
+using AutoMapper;
 using EmployeeManagement.Repositories.Context;
+using EmployeeManagement.Services.Mapper;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,13 @@ builder.Services.AddDbContext<EmployeeContext>(options =>
 options.UseSqlServer(
 builder.Configuration.GetConnectionString("EmployeeDb")
 ));
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
