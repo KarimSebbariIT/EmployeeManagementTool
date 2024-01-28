@@ -14,14 +14,14 @@ namespace EmployeeManagement.Repositories.unitOfWork
         {
             _employeeContext = employeeContext;
         }
-        public void Clear()
+        public  void Clear()
         {
             _employeeContext.ChangeTracker.Clear();
         }
 
-        public void SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            _employeeContext.SaveChangesAsync();
+            await _employeeContext.SaveChangesAsync();
         }
     }
 }

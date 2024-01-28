@@ -11,7 +11,7 @@ namespace EmployeeManagement.Services.IServices
     {
         Task<EmployeeCreateResponseModel> CreateEmployee(EmployeeCreateModel employee);
         Task<EmployeeUpdateResponseModel> UpdateEmployee(EmployeeUpdateModel employee);
-        Task<EmployeeDeleteResponseModel> DeleteEmployee(EmployeeModel employee);
+        Task<EmployeeDeleteResponseModel> DeleteEmployee(int id);
         Task<List<EmployeeModel>> GetEmployees();
         Task<EmployeeModel> GetEmployee(int id);
     }

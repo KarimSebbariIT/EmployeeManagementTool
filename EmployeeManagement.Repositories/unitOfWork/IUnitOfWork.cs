@@ -8,7 +8,7 @@ namespace EmployeeManagement.Repositories.unitOfWork
 {
     public interface IUnitOfWork
     {
-        void SaveChangesAsync();
+        Task SaveChangesAsync();
         void Clear();
     }
 }

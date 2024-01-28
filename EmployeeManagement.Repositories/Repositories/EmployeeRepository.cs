@@ -46,6 +46,7 @@ namespace EmployeeManagement.Repositories.Repositories
             if (employee != null)
             {
                 _employeeContext.Employees.Update(employee);
+                //_employeeContext.SaveChanges();
             }
         }
     }

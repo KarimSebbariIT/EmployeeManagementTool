@@ -1,6 +1,11 @@
 using AutoMapper;
 using EmployeeManagement.Repositories.Context;
+using EmployeeManagement.Repositories.IRepositories;
+using EmployeeManagement.Repositories.Repositories;
+using EmployeeManagement.Repositories.unitOfWork;
+using EmployeeManagement.Services.IServices;
 using EmployeeManagement.Services.Mapper;
+using EmployeeManagement.Services.Services;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +16,9 @@ builder.Services.AddDbContext<EmployeeContext>(options =>
 options.UseSqlServer(
 builder.Configuration.GetConnectionString("EmployeeDb")
 ));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 var mapperConfig = new MapperConfiguration(mc =>
 {
     mc.AddProfile(new MappingProfile());
@@ -40,5 +48,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCors(builder => builder
+     .AllowAnyOrigin()
+     .AllowAnyMethod()
+     .AllowAnyHeader());
 
 app.Run();

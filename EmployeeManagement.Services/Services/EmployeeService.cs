@@ -36,7 +36,7 @@ namespace EmployeeManagement.Services.Services
             try
             {
                 _employeeRepository.CreateEmployee(_mapper.Map<Employee>(employee));
-                _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.SaveChangesAsync();
                 return new EmployeeCreateResponseModel
                 {
                     Success = true,
@@ -59,26 +59,34 @@ namespace EmployeeManagement.Services.Services
         /// </summary>
         /// <param name="employee"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<EmployeeDeleteResponseModel> DeleteEmployee(EmployeeModel employee)
+        public async Task<EmployeeDeleteResponseModel> DeleteEmployee(int id)
         {
+            var employeeDeleteResponseModel = new EmployeeDeleteResponseModel();
             try
             {
-                _employeeRepository.DeleteEmployee(_mapper.Map<Employee>(employee));
-                _unitOfWork.SaveChangesAsync();
-                return new EmployeeDeleteResponseModel
+                var employee = _mapper.Map<EmployeeModel>(await _employeeRepository.GetEmployee(id));
+                if (employee != null)
                 {
-                    Success = true,
-                    Message = "Employee deleted"
-                };
+                    _unitOfWork.Clear();
+                    _employeeRepository.DeleteEmployee(_mapper.Map<Employee>(employee));
+                    await _unitOfWork.SaveChangesAsync();
+                    employeeDeleteResponseModel= new EmployeeDeleteResponseModel
+                    {
+                        Success = true,
+                        Message = "Employee deleted"
+                    };
+                }
+
             }
             catch (Exception ex)
             {
-                return new EmployeeDeleteResponseModel
+                employeeDeleteResponseModel= new EmployeeDeleteResponseModel
                 {
                     Success = false,
                     Message = ex.Message
                 };
             }
+            return employeeDeleteResponseModel;
         }
 
 
@@ -113,7 +121,7 @@ namespace EmployeeManagement.Services.Services
             try
             {
                 _employeeRepository.UpdateEmployee(_mapper.Map<Employee>(employee));
-                _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.SaveChangesAsync();
                 return new EmployeeUpdateResponseModel
                 {
                     Success = true,
